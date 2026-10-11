@@ -20,7 +20,7 @@ import { ToastContainer } from './components/Toast';
 import { DELIVERY_ZONES } from './data/menu';
 
 const MainAppContent: React.FC = () => {
-  const { currentScreen, activeTab, isCheckoutModalOpen, setIsCheckoutModalOpen } = useApp();
+  const { currentScreen, activeTab, isCheckoutModalOpen, setIsCheckoutModalOpen, isDarkMode } = useApp();
 
   const [checkoutParams, setCheckoutParams] = useState<{
     deliveryType: 'delivery' | 'pickup';
@@ -53,15 +53,16 @@ const MainAppContent: React.FC = () => {
   // If on Splash screen, show splash
   if (currentScreen === 'splash') {
     return (
-      <>
+      <div className={isDarkMode ? 'dark' : ''}>
         <ToastContainer />
         <SplashScreen />
-      </>
+      </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col transition-colors selection:bg-red-600 selection:text-white">
+    <div className={isDarkMode ? 'dark' : ''}>
+      <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col transition-colors selection:bg-red-600 selection:text-white">
       <ToastContainer />
       <Header />
 
@@ -79,6 +80,7 @@ const MainAppContent: React.FC = () => {
       <CartDrawer onProceedToCheckout={handleProceedToCheckout} />
       {isCheckoutModalOpen && <CheckoutModal checkoutParams={checkoutParams} />}
       <PaymentInfoModal />
+      </div>
     </div>
   );
 };
