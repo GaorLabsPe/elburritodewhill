@@ -1,0 +1,6 @@
+{
+  "name": "El Burrito de Whil - Delivery & Catálogo",
+  "description": "Web app móvil de catálogo interactivo y pedidos delivery por WhatsApp para El Burrito de Whil: burritos con papas nativas, salchipapas y hamburguesas artesanales.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
